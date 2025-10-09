@@ -2,14 +2,6 @@ import mujoco
 import numpy as np
 
 
-def get_q(d):
-    return np.array([
-        d.qpos[1], 
-        d.qvel[1], 
-        d.qpos[0], 
-        d.qvel[0]
-    ])
-
 def load_model(model_path: str) -> tuple[mujoco.MjModel, mujoco.MjData]:    
     m = mujoco.MjModel.from_xml_path(model_path)
     d = mujoco.MjData(m)
@@ -41,8 +33,7 @@ def main():
 
     for t in range(tsteps):
         data[t] = d.qpos
-        print(d.qpos)
-        # break
+        # print(d.qpos)
         mujoco.mj_step(m, d)
         viewer.sync()
 
