@@ -1,0 +1,56 @@
+<mujoco model="cartpole">
+  <compiler angle="radian"/>
+  <option gravity="0 0 -9.81" integrator="RK4" timestep="0.00001"/>
+
+  <default>
+    <geom rgba="0.8 0.8 0.8 1" contype="1" conaffinity="1"/>
+  </default>
+
+  <worldbody>
+
+<light name="sunlight"
+       pos="0 0 5"
+       dir="0 0 -1"
+       directional="true"
+       diffuse="2 2 2"
+       specular="1 1 1"
+       castshadow="false" />
+
+    <!-- cart body -->
+    <body name="cart" pos="0 0 0">
+
+      <!-- slider joint along x -->
+      <joint name="slider" type="slide" axis="1 0 0"/>
+
+      <!-- cart geometry, mass = 1 kg -->
+      <geom name="cart_geom" type="box" size="0.10 0.10 0.05" mass="1.0" rgba="0 0 1 1"/>
+
+      <!-- pole hinge pivot, placed on top of the cart -->
+      <body name="pole_base" pos="0 0 0">
+
+        <!-- hinge in the x–z plane, rotate about -y -->
+        <joint name="hinge" type="hinge" axis="0 -1 0"/>
+
+        <!-- massless visual pole: capsule of length L = 0.3 m -->
+        <geom name="pole_visual"
+              type="capsule"
+              fromto="0 0 0   0 0 0.3"
+              size="0.01"
+              density="0"
+              contype="0" conaffinity="0"
+              rgba="0 1 0 1"/>
+
+        <!-- tip mass: sphere of mass 0.2 kg located at the end of the pole -->
+        <body name="tip" pos="0 0 0.3">
+          <geom name="ball" type="sphere" size="0.02" mass="0.2" rgba="1 0 0 1"/>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <keyframe>
+    <key name="up" 
+      qpos="0 0.5235987756"
+      qvel="0 0"
+    />
+  </keyframe>
+</mujoco>
