@@ -1,6 +1,6 @@
 <mujoco model="biped">
     <compiler angle="radian"/>
-    <option gravity="0 0 -9.81" integrator="RK4" timestep="0.00001" o_solref="-1e5 -1e3" o_friction="0.5 0.5">
+    <option gravity="0 0 -9.81" integrator="RK4" timestep="0.00001" o_solref="-1e5 -1e3" o_friction="0.5">
         <flag override="enable"/>
     </option>
 
@@ -56,9 +56,9 @@
     </actuator> 
 
     <!-- if you change the init keyframe, also update relpose here -->
-    <!-- <equality>
+    <equality>
         <weld name="world_root" body1="world" body2="torso" active="true" relpose="0 0 0.65 1 0 0 0"/>
-    </equality> -->
+    </equality>
 
     <contact>
         <exclude body1="l_thigh" body2="r_thigh"/>

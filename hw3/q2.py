@@ -74,8 +74,8 @@ def q2a():
     viewer = mujoco.viewer.launch_passive(m, d)
 
     cam_presets = {
-                   "lookat": [0.0, 0.0, 0.15], 
-                   "distance": 1, 
+                   "lookat": [0.0, 0.0, 0.55], 
+                   "distance": 2, 
                    "azimuth": 90, 
                    "elevation": -10
                 }    
