@@ -16,7 +16,7 @@
 
 			<light name="spotlight0" mode="targetbodycom" target="cart" pos="0 0 10" cutoff="60" />
 			<light name="spotlight1" mode="targetbodycom" target="cart" pos="0.5 0 10" cutoff="60" />
-			<!-- <geom name="floor" type="plane" material="floor" size="10 10 0.1" pos="0 0 0" conaffinity="1" condim="4" friction="1.0 0.005 0.0001"/> -->
+	        <!-- <geom name="floor" type="plane" material="floor" size="10 10 0.1" pos="0 0 0" conaffinity="1" condim="4"/> -->
 			
             <!-- cart body -->
 			<body name="cart" pos="0 0 0">
@@ -25,7 +25,6 @@
 				<!-- cart geometry, mass = 1 kg -->
 				<geom name="cart" type="box" size="0.10 0.10 0.05" mass="1.0" rgba="0 0 1 1"/>
 				<!-- pole hinge pivot, placed on top of the cart -->
-				
                 <body name="pole_base" pos="0 0 0">
 					<!-- hinge in the x–z plane, rotate about -y -->
 					<joint name="hinge" type="hinge" axis="0 -1 0"/>
@@ -45,9 +44,13 @@
 			</body>
 		</worldbody>
 
+        <actuator>
+            <motor name="slider" joint="slider"/>
+        </actuator>
+
 		<keyframe>
 			<key name="up" 
-				qpos="0 0.5235987756"
+				qpos="0.1 0.1"
 				qvel="0 0"
 				/>
 		</keyframe>
