@@ -56,9 +56,9 @@
     </actuator> 
 
     <!-- if you change the init keyframe, also update relpose here -->
-    <equality>
+    <!-- <equality>
         <weld name="world_root" body1="world" body2="torso" active="true" relpose="0 0 0.65 1 0 0 0"/>
-    </equality>
+    </equality> -->
 
     <contact>
         <exclude body1="l_thigh" body2="r_thigh"/>

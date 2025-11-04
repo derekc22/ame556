@@ -61,7 +61,7 @@ def q1():
 
         q = d.qpos
         xz = np.r_[q[0], q[2]]
-        theta =  R.from_quat(q[3:]).as_euler('zyx')[1:2] # rad
+        theta =  R.from_quat(q[3:], scalar_first=True).as_euler('zyx')[1:2] # rad
         data[t] = np.concatenate([xz, theta], axis=0)
         
         mujoco.mj_step(m, d)

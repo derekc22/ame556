@@ -91,8 +91,8 @@ def q2a():
 
         qp = d.qpos
         xz = np.r_[qp[0], qp[2]]
-        theta =  R.from_quat(qp[3:7]).as_euler('zyx')[1] # rad
-        data[t] = np.concatenate([xz, [theta], qp[7:]], axis=0)
+        theta =  R.from_quat(qp[3:7], scalar_first=True).as_euler('zyx')[1:2] # rad
+        data[t] = np.concatenate([xz, theta, qp[7:]], axis=0)
         
         mujoco.mj_step(m, d)
         viewer.sync()
@@ -141,8 +141,8 @@ def q2b():
         d.ctrl = u
 
         xz = np.r_[qp[0], qp[2]]
-        theta =  R.from_quat(qp[3:7]).as_euler('zyx')[1] # rad
-        data[t] = np.concatenate([xz, [theta], qp[7:]], axis=0)
+        theta =  R.from_quat(qp[3:7], scalar_first=True).as_euler('zyx')[1:2] # rad
+        data[t] = np.concatenate([xz, theta, qp[7:]], axis=0)
         
         mujoco.mj_step(m, d)
         viewer.sync()
