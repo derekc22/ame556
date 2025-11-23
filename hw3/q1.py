@@ -40,7 +40,7 @@ def plot(t, data):
 
 def q1():
     
-    m, d = load_model("hw3/bar.xml")
+    m, d = load_model("hw3/assets/bar.xml")
     reset(m, d, "init")
     viewer = mujoco.viewer.launch_passive(m, d)
     camera_presets = {
@@ -49,7 +49,7 @@ def q1():
                    "azimuth": 270, 
                    "elevation": -10
                 }
-    set_cam(viewer, camera_presets, show_world_csys=False, show_body_csys=False)
+    set_cam(viewer, track=False, presets=camera_presets, show_world_csys=False, show_body_csys=False)
 
     tmax = 2
     dt = m.opt.timestep
@@ -61,7 +61,7 @@ def q1():
 
         q = d.qpos
         xz = np.r_[q[0], q[2]]
-        theta =  R.from_quat(q[3:], scalar_first=True).as_euler('zyx')[1:2] # rad
+        theta = R.from_quat(q[3:], scalar_first=True).as_euler('zyx')[1:2] # rad
         data[t] = np.concatenate([xz, theta], axis=0)
         
         mujoco.mj_step(m, d)

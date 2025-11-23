@@ -112,7 +112,7 @@ def get_q(d):
 
 
 def q3b():
-    m, d = load_model("hw3/cartpole.xml")
+    m, d = load_model("hw3/assets/cartpole.xml")
     reset(m, d, "up")
     viewer = mujoco.viewer.launch_passive(m, d)
     camera_presets = {
@@ -121,7 +121,7 @@ def q3b():
                    "azimuth": 90, 
                    "elevation": 0
                 }
-    set_cam(viewer, camera_presets, show_world_csys=False, show_body_csys=False)
+    set_cam(viewer, track=False, presets=camera_presets, show_world_csys=False, show_body_csys=False)
 
     tmax = 2
     dt = m.opt.timestep

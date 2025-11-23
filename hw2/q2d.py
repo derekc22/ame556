@@ -6,7 +6,7 @@ from utils.utils import *
 
 def q2d():
     
-    m, d = load_model("hw2/cartpole.xml")
+    m, d = load_model("hw2/assets/cartpole.xml")
     reset(m, d, "up")
     viewer = mujoco.viewer.launch_passive(m, d)
     viewer.opt.frame = mujoco.mjtFrame.mjFRAME_WORLD

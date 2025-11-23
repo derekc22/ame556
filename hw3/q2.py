@@ -58,9 +58,9 @@ def plot(t, data, figname):
     plt.grid()
     
     if figname == "q2a":
-        plt.suptitle("x(t), y(t), θ(t), qi(t) for 2D biped")
+        plt.suptitle("x(t), y(t), θ(t), qi(t) for biped")
     elif figname == "q2b":
-        plt.suptitle("x(t), y(t), θ(t), qi(t) for 2D biped under pd control")
+        plt.suptitle("x(t), y(t), θ(t), qi(t) for biped under pd control")
         
     plt.tight_layout()
     plt.savefig(f"{plot_dir}/{figname}.pdf")
@@ -69,17 +69,17 @@ def plot(t, data, figname):
 
 def q2a():
     
-    m, d = load_model("hw3/biped.xml")
+    m, d = load_model("hw3/assets/biped.xml")
     reset(m, d, "init")
     viewer = mujoco.viewer.launch_passive(m, d)
 
-    cam_presets = {
+    camera_presets = {
                    "lookat": [0.0, 0.0, 0.55], 
                    "distance": 2, 
                    "azimuth": 90, 
                    "elevation": -10
                 }    
-    set_cam(viewer, cam_presets, show_world_csys=False, show_body_csys=False)
+    set_cam(viewer, track=False, presets=camera_presets, show_world_csys=False, show_body_csys=False)
 
     tmax = 2
     dt = m.opt.timestep
@@ -115,16 +115,16 @@ def pd(qpos, qvel):
 
 def q2b():
     
-    m, d = load_model("hw3/biped.xml")
+    m, d = load_model("hw3/assets/biped.xml")
     reset(m, d, "init")
     viewer = mujoco.viewer.launch_passive(m, d)
-    cam_presets = {
+    camera_presets = {
                    "lookat": [0.0, 0.0, 0.55], 
                    "distance": 2, 
                    "azimuth": 90, 
                    "elevation": -10
                 }  
-    set_cam(viewer, cam_presets, show_world_csys=False, show_body_csys=True)
+    set_cam(viewer, track=False, presets=camera_presets, show_world_csys=False, show_body_csys=False)
 
     tmax = 2
     dt = m.opt.timestep
