@@ -28,29 +28,23 @@
 
             <body name="l_thigh" pos="0 0 -0.235">
                 <joint name="l_thigh" type="hinge" pos="0 0 0.11" axis="0 1 0" limited="true" range="-1.5707963268 1.5707963268"/>
-                <!-- <geom name="l_thigh" type="box" size="0.01 0.01 0.11" mass="0.25" rgba="0 0 1 1"/> -->
-                <geom name="l_thigh" type="capsule" size="0.015 0.11" mass="0.25" rgba="0 0 1 1"/>
+                <geom name="l_thigh" type="box" size="0.01 0.01 0.11" mass="0.25" rgba="0 0 1 1"/>
 
                 <body name="l_calf" pos="0 0 -0.22">
                     <joint name="l_calf" type="hinge" pos="0 0 0.11" axis="0 1 0" limited="true" range="-1.5707963268 1.5707963268" />
-                    <!-- <geom name="l_calf" type="box" size="0.01 0.01 0.11" mass="0.25" rgba="0 0.5 1 1"/> -->
-                    <geom name="l_calf" type="capsule" size="0.015 0.11" mass="0.25" rgba="0 0.5 1 1"/>
-                        <!-- <geom name="l_foot" type="box" pos="0 0 -0.11" mass="0" size="0.01 0.01 0.00001" rgba="0 1 0 1"/> -->
-                        <geom name="l_foot" type="sphere" pos="0 0 -0.11" mass="0" size="0.015" rgba="0 1 0 1"/>
+                    <geom name="l_calf" type="box" size="0.01 0.01 0.11" mass="0.25" rgba="0 0.5 1 1"/>
+                        <geom name="l_foot" type="box" pos="0 0 -0.11" mass="0" size="0.01 0.01 0.00001" rgba="0 1 0 1"/>
                 </body>
             </body>
 
             <body name="r_thigh" pos="0 0 -0.235">
                 <joint name="r_thigh" type="hinge" pos="0 0 0.11" axis="0 1 0" limited="true" range="-1.5707963268 1.5707963268"/>
-                <!-- <geom name="r_thigh" type="box" size="0.01 0.01 0.11" mass="0.25" rgba="1 0 0 1"/> -->
-                <geom name="r_thigh" type="capsule" size="0.015 0.11" mass="0.25" rgba="1 0 0 1"/>
+                <geom name="r_thigh" type="box" size="0.01 0.01 0.11" mass="0.25" rgba="1 0 0 1"/>
 
                 <body name="r_calf" pos="0 0 -0.22">
                     <joint name="r_calf" type="hinge" pos="0 0 0.11" axis="0 1 0" limited="true" range="-1.5707963268 1.5707963268"/>
-                    <!-- <geom name="r_calf" type="box" size="0.01 0.01 0.11" mass="0.25" rgba="1 0.3 0 1"/> -->
-                    <geom name="r_calf" type="capsule" size="0.015 0.11" mass="0.25" rgba="1 0.3 0 1"/>
-                        <!-- <geom name="r_foot" type="box" pos="0 0 -0.11" mass="0" size="0.01 0.01 0.00001" rgba="0 1 0 1"/> -->
-                        <geom name="r_foot" type="sphere" pos="0 0 -0.11" mass="0" size="0.015" rgba="0 1 0 1"/>
+                    <geom name="r_calf" type="box" size="0.01 0.01 0.11" mass="0.25" rgba="1 0.3 0 1"/>
+                        <geom name="r_foot" type="box" pos="0 0 -0.11" mass="0" size="0.01 0.01 0.00001" rgba="0 1 0 1"/>
                 </body>
             </body>
         </body>
